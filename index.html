@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const choices = ["Rock", "Paper", "Scissors"]
+
+        function playerchoice(){
+            let pchoice = prompt("Pick, Rock, Paper, Scissors")
+            let corrected_choice = pchoice.substring(0,1).toUpperCase() + pchoice.substring(1).toLowerCase()
+            console.log(`You picked: ${corrected_choice}`)
+        }
+        
+        function getComputerChoice(){
+            const compchoice = Math.floor(Math.random() * choices.length)
+            console.log(`Computer picked: ${choices[compchoice]}`)
+        }
+        
+        playerchoice()
+        getComputerChoice()
+
+
+
+    </script>
+</body>
+</html>
