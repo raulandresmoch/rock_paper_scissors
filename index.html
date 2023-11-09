@@ -9,22 +9,70 @@
     <script>
 
         const choices = ["Rock", "Paper", "Scissors"]
+        p_score = 0
+        c_score = 0
+        num_games = 0
 
         function playerchoice(){
             let pchoice = prompt("Pick, Rock, Paper, Scissors")
             let corrected_choice = pchoice.substring(0,1).toUpperCase() + pchoice.substring(1).toLowerCase()
-            console.log(`You picked: ${corrected_choice}`)
+            if (!(corrected_choice == "Rock" || corrected_choice == "Paper" || corrected_choice == "Scissors")){
+                playerchoice()
+            }
+            else {return corrected_choice}
         }
         
         function getComputerChoice(){
             const compchoice = Math.floor(Math.random() * choices.length)
-            console.log(`Computer picked: ${choices[compchoice]}`)
+            return choices[compchoice]
         }
+
+
+
+        function game(){
         
-        playerchoice()
-        getComputerChoice()
+            let pc = playerchoice()
+            let cc = getComputerChoice()
 
+            console.log(`You choose: ${pc}`)
+            console.log(`Computer choose: ${cc}`)
+            if(pc === cc ){
+                console.log("Game Tie")
+                console.log(`playe Score: ${p_score}`)
+                console.log(`Computer Score: ${c_score}`)
+            }
+            else if ( pc === "Rock" && cc === "Paper") {
+                console.log("Computer Wins")
+                c_score++
+                console.log(`playe Score: ${p_score}`)
+                console.log(`Computer Score: ${c_score}`)
+            }
+            else if ( pc === "Paper" && cc === "Scissors") {
+                console.log("Computer Wins")
+                c_score++
+                console.log(`playe Score: ${p_score}`)
+                console.log(`Computer Score: ${c_score}`)
+            }
+            else if ( pc === "Scissors" && cc === "Rock") {
+                console.log("Computer Wins")
+                c_score++
+                console.log(`playe Score: ${p_score}`)
+                console.log(`Computer Score: ${c_score}`)
+            }
+            else {
+                console.log("Player Wins")
+                p_score++
+                console.log(`playe Score: ${p_score}`)
+                console.log(`Computer Score: ${c_score}`)
+            }
+        num_games++
+        }   
 
+        while(num_games < 5){
+
+            game()
+            
+        }
 
     </script>
 </body>
