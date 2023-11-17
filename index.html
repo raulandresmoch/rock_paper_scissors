@@ -9,20 +9,38 @@
     <script>
 
         const choices = ["Rock", "Paper", "Scissors"]
+        let player_score = 0
+        let computer_score = 0
+
+        function game(){
 
         function playerchoice(){
-            let pchoice = prompt("Pick, Rock, Paper, Scissors")
+            let pchoice = prompt("Pick: Rock, Paper, Scissors")
             let corrected_choice = pchoice.substring(0,1).toUpperCase() + pchoice.substring(1).toLowerCase()
-            console.log(`You picked: ${corrected_choice}`)
+            return corrected_choice
         }
         
         function getComputerChoice(){
             const compchoice = Math.floor(Math.random() * choices.length)
-            console.log(`Computer picked: ${choices[compchoice]}`)
+            return compchoice
         }
+
+        let pc = playerchoice()
+        let cc = getComputerChoice()
+
+        console.log(`You picked: ${pc}`)
+        console.log(`Computer picked: ${choices[cc]}`)
+
+        if (pc === "Rock" && cc === "Paper"){
+            console.log("Computers Wins");
+            computer_score++;
+        }
+
+        console.log(`Computer Score: ${computer_score}`)   
+        console.log(`Player Score: ${player_score}`) 
+    }
+        game()
         
-        playerchoice()
-        getComputerChoice()
 
 
 
